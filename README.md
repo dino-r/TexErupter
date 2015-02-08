@@ -30,7 +30,7 @@ and to run
 
 This will generate a file erupted\_test.html and a file test.html.1.svg. Open erupted\_test.html with your webbrowser and view the result. 
 
-The \<$\>-tags are used as inline equations just as the $-environment in LaTeX documents. One issue that arises with inline equations that are rendered as SVG images, is that there's no baseline to adjust the height of the expressions. The solution to this is that an invisible bracket is rendered into each of the inline equations to approximately make the center of an expression the center of the image. However, it is necessary to make the resulting \<img\> tag vertically aligned by its middle. This can be achieved with a simple CSS statement (see Examples). 
+The \<$\>-tags are used as inline equations just as the $-environment in LaTeX documents. One issue that arises with inline equations that are rendered as SVG images, is that there's no baseline to adjust the height of the expressions. The solution to this is that an invisible bracket is rendered into each of the inline equations to approximately make the center of an expression the center of the image. However, it is necessary to make the resulting \<img\>-tag vertically aligned by its middle. This can be achieved with a simple CSS statement (see Examples). 
 
 The \<tex\>-environment is used to handle full LaTeX environments. For an actual equation, you can put
 
@@ -50,7 +50,7 @@ There are a few options that you can pass to TexErupter for help, debuggung and 
         -f FONTSIZE  --fontsize=FONTSIZE  change the font size in LaTeX files
         -p PACKAGES  --package=PACKAGES   Comma separated list of packages to be included in the LaTeX header
 
-The -v option is for verbose output. TexErupter will print some information on what it does and it will show the pdflatex compilation process. It will also halt during the pdflatex compilation if there are any errors reported by pdflatex.
+The -v option is for verbose output. TexErupter will print some information on what it does and it will show the pdflatex compilation process. It will also halt during the pdflatex compilation if there are any errors reported by pdflatex. By default, TexErupter cleans up all unnecessary intermediate files like the generated tex-file and the subsequent pdflatex aux-, log- and pdf-file. If you specify the -v option, theses files will be kept for debugging purposes.
 
 The -o option will give you the possibility to specify your own filename for the output.
 
