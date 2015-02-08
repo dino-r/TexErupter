@@ -21,8 +21,11 @@ Pdflatex and pdf2svg are run-time dependencies. Pdflatex is used to compile the 
 Usage
 --------
 The easiest way to trying out texerupter is to simply create a file, say test.html, with the content:
-      \<$\> e^{i \pi} = - 1 \</$\>
+
+      <$> e^{i \pi} = - 1 </$>
+
 and to run
+
       $ texerupter test.html
 
 This will generate a file erupted\_test.html and a file test.html.1.svg. Open erupted\_test.html with your webbrowser and view the result. 
@@ -30,9 +33,11 @@ This will generate a file erupted\_test.html and a file test.html.1.svg. Open er
 The \<$\>-tags are used as inline equations just as the $-environment in LaTeX documents. One issue that arises with inline equations that are rendered as SVG images, is that there's no baseline to adjust the height of the expressions. The solution to this is that an invisible bracket is rendered into each of the inline equations to adjust approximately make the center of an expression the center of the image. However, it is necessary to make the resulting \<img\> tag vertically aligned by its middle. This can be achieved with a simple CSS statement (see Examples). 
 
 The \<tex\>-environment is used to handle full LaTeX environments. For an actual equation, you can put
-      \<tex\>
+
+      <tex>
          \[ \vec{A} = 5 \vec{e}_x + \vec{e}_y \]
-      \</tex\>
+      </tex>
+
 into a file and let TexErupter do its thing. Note that the equation environment needs to be included within the \<tex\>-tags, since no additional insertions will happen if you use the \<tex\>-tags. The contents are simply copied verbatim into a LaTeX-document.
 
 There are a few options that you can pass to TexErupter for help, debuggung and to customize it for your needs. Using TexErupter with the -h option or without any arguments will show the help
