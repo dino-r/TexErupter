@@ -68,3 +68,4 @@ if you want to draw with TikZ or do some fancy plotting inside the \<tex\>-envir
 TODO
 -------
    - Command line argument to pass class attribute to \<img\>-tag
+   - Examples
