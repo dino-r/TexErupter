@@ -58,7 +58,7 @@ The -f option gives you control over the font size of the rendered LaTeX-documen
 
 The -p option gives you access into the composition of the external LaTeX-document. You can use a comma separated list (no spaces!) to specify the package names you want to include via \\usepackage{..} in the LaTeX document. For example: 
 
-   texerupter -p tikz,pgfplots file.html
+      texerupter -p tikz,pgfplots file.html
 
 if you want to draw with TikZ or do some fancy plotting inside the \<tex\>-environment.
 
