@@ -13,7 +13,7 @@ Dependencies:
  - pdflatex (included in Tex Live or MacTex, https://www.tug.org)
  - pdf2svg (http://www.cityinthesky.co.uk/opensource/pdf2svg)
 
-The GHC compiler and some modules contained in the Haskell Platform are necessary for compiling TexErupter. A makefile is included in the src-directory. Simply go ahead and type 'make' to obtain the executable 'texerupter'.
+The GHC compiler and some modules contained in the Haskell Platform are necessary for compiling TexErupter. A makefile is included in the 'src'-directory. Simply go ahead and type 'make' to obtain the executable 'texerupter'.
 
 Pdflatex and pdf2svg are run-time dependencies. Pdflatex is used to compile the LaTeX-code to PDF and pdf2svg is used to subsequently obtain SVG images from the PDFs.
 
@@ -30,7 +30,7 @@ and to run
 
 This will generate a file erupted\_test.html and a file test.html.1.svg. Open erupted\_test.html with your webbrowser and view the result. 
 
-The \<$\>-tags are used as inline equations just as the $-environment in LaTeX documents. One issue that arises with inline equations that are rendered as SVG images, is that there's no baseline to adjust the height of the expressions. The solution to this is that an invisible bracket is rendered into each of the inline equations to adjust approximately make the center of an expression the center of the image. However, it is necessary to make the resulting \<img\> tag vertically aligned by its middle. This can be achieved with a simple CSS statement (see Examples). 
+The \<$\>-tags are used as inline equations just as the $-environment in LaTeX documents. One issue that arises with inline equations that are rendered as SVG images, is that there's no baseline to adjust the height of the expressions. The solution to this is that an invisible bracket is rendered into each of the inline equations to approximately make the center of an expression the center of the image. However, it is necessary to make the resulting \<img\> tag vertically aligned by its middle. This can be achieved with a simple CSS statement (see Examples). 
 
 The \<tex\>-environment is used to handle full LaTeX environments. For an actual equation, you can put
 
