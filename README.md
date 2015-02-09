@@ -69,3 +69,4 @@ TODO
 -------
    - Command line argument to pass class attribute to \<img\>-tag
    - Examples
+   - Add Support for processing of files outside the current working directory
