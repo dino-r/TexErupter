@@ -42,13 +42,17 @@ into a file and let TexErupter do its thing. Note that the equation environment 
 
 There are a few options that you can pass to TexErupter for help, debuggung and to customize it for your needs. Using TexErupter with the -h option or without any arguments will show the help
 
-      USAGE: texerupter [-h] [-v] [-o FILE] [-f FONTSIZE] [-p PACKAGE1,PACKAGE2,...] FILE 
+
+      USAGE: texerupter [-hv] [-o FILE] [-f FONTSIZE] [-p PACKAGES] [--img=STRING] [--eq-inline=STRING] FILE 
 
         -h           --help               Show this help and exit
         -v           --verbose            Verbose and keep LaTeX files
         -o FILE      --output=FILE        Output FILE
         -f FONTSIZE  --fontsize=FONTSIZE  change the font size in LaTeX files
-        -p PACKAGES  --package=PACKAGES   Comma separated list of packages to be included in the LaTeX header
+        -p PACKAGES  --package=PACKAGES   Comma separated list of packages to be included in the LaTeX
+                     --img=STRING         Attributes for <img>-tags generated from the <tex>-tags
+                     --eq-inline=STRING   Attributes for <img>-tags generated from the <$>-tags
+
 
 The -v option is for verbose output. TexErupter will print some information on what it does and it will show the pdflatex compilation process. It will also halt during the pdflatex compilation if there are any errors reported by pdflatex. By default, TexErupter cleans up all unnecessary intermediate files like the generated tex-file and the subsequent pdflatex aux-, log- and pdf-file. If you specify the -v option, theses files will be kept for debugging purposes.
 
@@ -58,15 +62,25 @@ The -f option gives you control over the font size of the rendered LaTeX-documen
 
 The -p option gives you access into the composition of the external LaTeX-document. You can use a comma separated list (no spaces!) to specify the package names you want to include via \\usepackage{..} in the LaTeX document. For example: 
 
-      texerupter -p tikz,pgfplots file.html
+      $ texerupter -p tikz,pgfplots file.html
 
 if you want to draw with TikZ or do some fancy plotting inside the \<tex\>-environment.
 
+The --img=STRING option is used for adding attributes to the \<img\>-tags generated from \<tex\>-environments. STRING must be properly escaped, e.g. a valid --img option would be
+   
+      $ texerupter --img="class=\"whateverfloatsyourboat\"" file.html
 
+The --eq-inline=STRING is essentially the same as --img, only that it inserts a string into the \<img\>-tag generated from \<$\>-environments.
+
+
+Examples
+--------
+There's an examples-directory containing a few examples. Each example contains a README which holds some additional information as to what happens. The makefiles contained in each example-directory contain the necessary command to build the example. Once TexErupter has been built from its source, you can build all the examples by going to their directories and typing 'make'. This also ensures, that your system is setup correctly.
+
+There are two examples simply for testing the \<$\>- and \<tex\>-tags, then there's an example that shows how inline equations and block equations can be mixed and properly aligned with the rest of your text. The fourth example shows how plotting routines can be invoked to generate rather beautiful SVG-images from a few lines of code with the powerful TikZ/PGFPlots packages.
 
 
 TODO
 -------
-   - Examples
    - Add Support for processing of files outside the current working directory
    - Fix the issue that align environments in LaTeX keep having a margin on the left side inside a standalone documentclass.

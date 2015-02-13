@@ -23,11 +23,11 @@ options =
    , Option ['o']  ["output"]   (ReqArg Output "FILE")  "Output FILE"
    , Option ['f']  ["fontsize"] (ReqArg FontSize "FONTSIZE") "change the font size in LaTeX files"
    , Option ['p']  ["package"]  (ReqArg Package "PACKAGES") 
-      "Comma separated list of packages to be included in the LaTeX header"
+      "Comma separated list of packages to be included in the LaTeX"
    , Option []    ["img"] (ReqArg ImgOpts "STRING") 
-      "A string that should be included in all <img> tags"
+      "Attributes for <img>-tags generated from the <tex>-tags"
    , Option []    ["eq-inline"] (ReqArg EqInlineOpts "STRING") 
-      "A string that should be included in all <img> tags of inline equations"
+      "Attributes for <img>-tags generated from the <$>-tags"
    ]
 
 extractOptions :: [String] -> IO ([Flag], [String])
@@ -85,6 +85,6 @@ packages (flag:flags) =
 
 -- show help text
 showHelp :: String
-showHelp = usageInfo "USAGE: texerupter [-h] [-v] [-o FILE] [-f FONTSIZE]\ 
-                     \ [-p PACKAGE1,PACKAGE2,...] FILE \n" options
+showHelp = usageInfo "USAGE: texerupter [-hv] [-o FILE] [-f FONTSIZE]\ 
+                     \ [-p PACKAGES] [--img=STRING] [--eq-inline=STRING] FILE \n" options
 
