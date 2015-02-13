@@ -3,7 +3,7 @@ import System.Process     (system)
 import Control.Monad      (when)
 import GHC.IO.Exception   (ExitCode(..))
 
-import Options     (extractOptions, isHelp, isVerbose, fontSize,
+import Options     (extractOptions, isHelp, isVerbose, eqInlineOptions, imgOptions, fontSize,
                     outputFile, packages, showHelp)
 import ParseHTML   (Tag, extractTex, parseHTML)
 import ProcessHTML (writeProcessedHTML)
@@ -50,10 +50,14 @@ main = do
                      -- we need to know the number of external TeX files
                      let texTags = extractTex tags -- Tags with type Tex or Dollar
                          numberOfFiles = length texTags
-                     -- write the modified HTML file to the target directory
+                     {-
+                     - Write the modified HTML file to the target directory.
+                     - But first get the Tag Options for inline equations and 
+                     - the full TeX environment
+                     -}
                      when (verbose) 
                         $ putStrLn ("Process & Write:\n   " ++ ifile ++ " -> " ++ ofile)
-                     writeProcessedHTML ifile ofile tags
+                     writeProcessedHTML (eqInlineOptions flags, imgOptions flags) ifile ofile tags
                      
                      -- write and process the externalized tex file to SVGs
                      let wrap = (texHeader, fontSizeTexCommand fontsize)

@@ -6,7 +6,7 @@ module ParseHTML (
 
 import Text.ParserCombinators.Parsec
 
-data Tag = Tex String | Other String deriving (Show, Eq)
+data Tag = Tex String | Dollar String | Other String deriving (Show, Eq)
 
 parseHTML :: String -> String -> Either ParseError [Tag] 
 parseHTML filename input = parse iterateRules filename input
@@ -33,7 +33,7 @@ dollar =
    do string "<$>"
       contents <- manyTill anyChar (try (string "</$>"))
       -- add invisible bracket to approximately align baseline
-      return (Tex ("$\\big." ++ contents ++ "$"))
+      return (Dollar ("$\\big." ++ contents ++ "$"))
       
 otherTag = 
    do char '<'
@@ -47,4 +47,5 @@ other =
 extractTex :: [Tag] -> [String]
 extractTex [] = []
 extractTex ((Tex    str):xs) = str:(extractTex xs)
+extractTex ((Dollar str):xs) = str:(extractTex xs)
 extractTex ( _          :xs) = (extractTex xs)

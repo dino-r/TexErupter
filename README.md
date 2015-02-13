@@ -67,7 +67,6 @@ if you want to draw with TikZ or do some fancy plotting inside the \<tex\>-envir
 
 TODO
 -------
-   - Command line argument to pass class attribute to \<img\>-tag
    - Examples
    - Add Support for processing of files outside the current working directory
    - Fix the issue that align environments in LaTeX keep having a margin on the left side inside a standalone documentclass.

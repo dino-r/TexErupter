@@ -2,6 +2,8 @@ module Options (
    extractOptions,
    isHelp,
    isVerbose,
+   imgOptions,
+   eqInlineOptions,
    fontSize,
    outputFile,
    packages,
@@ -11,7 +13,8 @@ module Options (
 import System.Console.GetOpt 
 import qualified Data.Text as T (pack, unpack, split)
 
-data Flag = Help | Verbose | Package String | FontSize String | Output String deriving (Show,Eq)
+data Flag = Help | Verbose | Package String | FontSize String | Output String 
+            | ImgOpts String | EqInlineOpts String deriving (Show,Eq)
 
 options :: [OptDescr Flag]
 options =
@@ -21,6 +24,10 @@ options =
    , Option ['f']  ["fontsize"] (ReqArg FontSize "FONTSIZE") "change the font size in LaTeX files"
    , Option ['p']  ["package"]  (ReqArg Package "PACKAGES") 
       "Comma separated list of packages to be included in the LaTeX header"
+   , Option []    ["img"] (ReqArg ImgOpts "STRING") 
+      "A string that should be included in all <img> tags"
+   , Option []    ["eq-inline"] (ReqArg EqInlineOpts "STRING") 
+      "A string that should be included in all <img> tags of inline equations"
    ]
 
 extractOptions :: [String] -> IO ([Flag], [String])
@@ -45,6 +52,19 @@ outputFile defaultname (flag:flags) =
       Output str -> str
       _          -> outputFile defaultname flags
 
+eqInlineOptions :: [Flag] -> String
+eqInlineOptions []           = ""
+eqInlineOptions (flag:flags) =
+   case flag of
+      EqInlineOpts str -> str
+      _                -> eqInlineOptions flags
+
+imgOptions :: [Flag] -> String
+imgOptions []           = ""
+imgOptions (flag:flags) =
+   case flag of
+      ImgOpts str -> str
+      _           -> imgOptions flags
    
 -- check for fontsize option
 fontSize :: String -> [Flag] -> String
