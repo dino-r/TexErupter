@@ -1,0 +1,15 @@
+The command that is invoked by the makefile to compile this example is
+
+   $ ../../src/texerupter example.html
+
+To execute it, type 'make'. This generates the SVG example.html.1.svg and a modified HTML file erupted_example.html.
+
+This example is just to show the basic functionality. The contents of the <$>-tag are inserted into a LaTeX $-environment, rendered to a PDF and transformed to an SVG. The <$>-environment is then replaced by an <img>-tag that has the generated SVG as its 'src' attribute.
+
+Open erupted_example.html in your Webbrowser to view the result.
+
+If you want to examine what kind of LaTeX file has been generated, use the verbose option
+   
+   $ ../../src/texerupter -v example.html
+
+All intermediate files will be kept and you can examine the example.html.tex file.

@@ -1,0 +1,16 @@
+The command that is invoked by the makefile to compile this example is
+
+	$ ../../src/texerupter -p tikz,pgfplots --img="class=\"block\"" --eq-inline="class=\"eqinline\"" example.html
+
+To execute it, type 'make'. This generates SVG-Files example.html.<n>.svg and a modified HTML file erupted_example.html. Note that the 3d plot needs a few moments to render.
+
+This example serves to show how the powerful plotting and drawing TikZ/PGFPlots routines can be used to generate SVGs. Note that all code that is necessary to draw these pictures is contained within the <tex>-tags.
+
+Since the drawing routines are part of the TikZ and PGFPlots packages, we need to include the packages in the LaTeX header. To achieve this, we can simply specify the -p option with a comma separated list (no whitespace!) of the packages. In this case: -p tikz,pgfplots.
+
+In addition the options --img="class=\"block\"" and --eq-inline="class=\"eqinline\"" are passed to TexErupter. These strings will be used as attributes to the <img>-tags that are generated from <tex> and <$> environments, respectively. The CSS classes block and eqinline are defined in the HTML header.
+
+Open erupted_example.html in your Webbrowser to view the result.
+
+If you want to examine what kind of LaTeX file has been generated or if there's been some kind of exception, use the verbose option: -v.
+   

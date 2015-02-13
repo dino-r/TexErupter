@@ -1,0 +1,17 @@
+The command that is invoked by the makefile to compile this example is
+
+   $ ../../src/texerupter --img="class=\"block\"" example.html
+
+To execute it, type 'make'. This generates SVG-Files example.html.<n>.svg and a modified HTML file erupted_example.html.
+
+This example serves to show how inline and block equations can be rendered. The original and final HTML files contain CSS statements in the header. The vertical-align attribute for inline equations is necessary, so they can be rendered at approximately the same height as the surrounding text.
+
+In addition the option --img="class=\"block\"" is passed to TexErupter. This string, which needs to be properly escaped, will appear in every <img>-tag that has been generated from a <tex>-tag. The CSS block-class is also defined in the header.
+
+Open erupted_example.html in your Webbrowser to view the result.
+
+If you want to examine what kind of LaTeX file has been generated, use the verbose option
+   
+   $ ../../texerupter -v --img="class=\"block\"" example.html
+
+All intermediate files will be kept and you can examine the example.html.tex file.

@@ -1,0 +1,39 @@
+<html>
+<head>
+   <style type="text/css">
+      html {font-size: 13pt;}
+      img {vertical-align: middle;}
+      img.block {display:block; margin:0.5em;}
+   </style>
+</head>
+
+<body>
+
+<p> Taken from: <a href="https://en.wikipedia.org/wiki/Path_integral_formulation">https://en.wikipedia.org/wiki/Path_integral_formulation</a></p>
+
+<h3> Time slicing definition </h3>
+<p> For a particle in a smooth potential, the path integral is approximated by zig-zag paths, which in one dimension is a product of ordinary integrals. For the motion of the particle from position <$>x_a</$> at time <$>t_a</$> to <$>x_b</$> at time <$>t_b</$>, the time sequence
+<tex>
+\[
+t_a=t_0<t_1<...<t_{n-1}<t_n<t_{n+1}=t_b
+\]
+</tex>
+can be divided up into <$>n+1</$> little segments <$>t_j - t_{j-1}</$>, where <$>j = 1,\dots,n + 1</$>, of fixed duration
+<tex>
+\[
+\epsilon = \Delta t=\tfrac{t_b-t_a}{n+1}\,.
+\]
+</tex>
+This process is called time-slicing.
+</p>
+
+<p> An approximation for the path integral can be computed as proportional to
+<tex>
+\[
+\int\limits_{-\infty}^{+\infty}\,\ldots \int\limits_{-\infty}^{+\infty}\, \ \exp \left(\frac{{\rm i}}{\hbar}\int\limits_{t_a}^{t_b} L(x(t),v(t), t)\,\mathrm{d}t\right)dx_0 \, \ldots \, dx_n 
+\]
+</tex>
+where <$> L(x,v, t) </$> is the Lagrangian of the 1d system with position variable <$>x(t)</$> and velocity <$>v= \dot{x}(t)</$>  considered (see below), and <$>dx_j</$> corresponds to the position at the <$>j</$>th time step, if the time integral is approximated by a sum of n terms.
+</p>
+</body>
+</html>

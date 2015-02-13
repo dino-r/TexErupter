@@ -66,7 +66,7 @@ main = do
                      when (not verbose) clean
 
 -- the default LaTeX header
-texHeader_default = "\\documentclass[multi, preview, varwidth, border={0pt 1.5pt 0pt 0pt}]{standalone}\n\
+texHeader_default = "\\documentclass[multi, preview, varwidth=\\maxdimen, border={0pt 1.5pt 0pt 0pt}]{standalone}\n\
 \\\usepackage{anyfontsize}\n\
 \\\usepackage{amsmath}\n\
 \\\standaloneenv{page}\n"
