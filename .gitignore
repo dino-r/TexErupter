@@ -1,3 +1,5 @@
 src/*.hi
 src/*.o
 src/texerupter
+
+examples/*/erupted_*
